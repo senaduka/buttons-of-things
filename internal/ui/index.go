@@ -64,7 +64,18 @@ func Index() string {
   }
 
 
-  const handle = function(button) { return function() { alert(button) } };  
+  const handle = function(button) {
+    return function() {
+
+      var r = new XMLHttpRequest();
+      r.open("POST", "/handle", true);
+      r.onreadystatechange = function () {
+        if (r.readyState != 4 || r.status != 200) return;
+        console.log("Success: " + r.responseText);
+      };
+      r.send("button=" + button);
+    };
+  };
   const descriptions = [
        [{
          "label": "Hello", 
