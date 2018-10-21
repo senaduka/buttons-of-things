@@ -1,7 +1,13 @@
 package ui
 
-func Index() string {
-  return `
+import "github.com/senaduka/internal/config"
+import "html/template"
+
+var indexTemplate
+
+func Index(configuration: Config) string {
+
+  templateString = `
 <!doctype html>
 <html>
 <head>
@@ -128,9 +134,9 @@ func Index() string {
 
 </body>
 </html>
+`
 
-
-
-
-  `
+ if indexTemplate != nil {
+   indexTemplate = 
+ }
 }
